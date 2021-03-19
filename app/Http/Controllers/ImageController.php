@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Services\ImageService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,8 +17,14 @@ class ImageController extends Controller
     }
     public function index()
     {
-        $images = Image::all();
-        return view('index', compact('images', $images));
+        return view('index');
+    }
+
+    public function list()
+    {
+        $images = Image::all()
+            ->groupBy(['piece_identifier']);
+        return view('list', compact('images', $images));
     }
 
     public function upload(Request $request)

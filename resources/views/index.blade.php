@@ -13,7 +13,7 @@
         </div>
     @endif
     <div class="uk-container">
-        <div class="" style="width: 70%; margin: auto">
+        <div class="uk-position-center" style="width: 70%; margin: auto">
             <form action="{{ route('image.upload') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="uk-margin-small" uk-margin>
@@ -42,20 +42,6 @@
                     <button class="uk-button uk-button-default">Загрузить</button>
                 </div>
             </form>
-            @if(count($images) > 0)
-                <ul uk-accordion>
-                    <li>
-                        <a class="uk-accordion-title" href="#">Загруженные картинки</a>
-                        <div class="uk-accordion-content">
-                            <ul>
-                                @foreach($images as $image)
-                                    <li><a href="{{ route('api.image.show', ['piece_identifier' => $image->piece_identifier, 'part' => $image->partition_no]) }}">{{ $image->getPath() }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            @endif
         </div>
     </div>
 @endsection

@@ -16,6 +16,20 @@
 <body>
 <div id="app">
     <main class="py-4">
+        <nav class="uk-navbar-container" uk-navbar>
+            <div class="uk-navbar-left">
+
+                <ul class="uk-navbar-nav">
+                    <li class="{{ Route::currentRouteName() === 'image.index' ? 'uk-active' : '' }}">
+                        <a href="{{ route('image.index') }}">Загрузить</a>
+                    </li>
+                    <li class="{{ Route::currentRouteName() === 'image.list' ? 'uk-active' : '' }}">
+                        <a href="{{ route('image.list') }}">К списку загруженных частей</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
         @yield('content')
     </main>
 </div>

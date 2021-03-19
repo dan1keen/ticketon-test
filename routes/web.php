@@ -13,5 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'ImageController@index')->name('image.index');
+Route::get('/upload', 'ImageController@index')->name('image.index');
 Route::post('/upload', 'ImageController@upload')->name('image.upload');
+Route::get('/', 'ImageController@list')->name('image.list');
